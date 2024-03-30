@@ -1,0 +1,58 @@
+#include<stdio.h> 
+#define MAXSIZE 3 
+int q[maxsize], f=0,r=-1; 
+void insert() 
+{ 
+int n; 
+if(rear==MAXSIZE-1) 
+printf("\nQueue full\n"); 
+else 
+{ 
+printf("\nEnter the data to be added\n"); 
+scanf("%d", &n); 
+q[++r]=n; 
+} 
+} 
+void delete() 
+{ 
+if(f>r) 
+printf("\nQueue is empty\n"); 
+else 
+{ 
+printf("\n%d is deleted\n",q[f++]); 
+if(f>r && r==MAXSIZE-1) 
+{ 
+printf("\nRein it\n"); 
+f=0; r=-1; 
+} 
+} 
+} 
+void display() 
+{ 
+int i; 
+if(f>r) 
+printf("\nQueue is empty\n"); 
+else 
+{ 
+printf("\nQueue status is\n"); 
+for(i=f;i<=r;i++) 
+printf("%d\t",q[i]); 
+} 
+} 
+int main() 
+{ 
+int ch; 
+while(1) 
+{ 
+printf("1.Insert\n2.Delete\n3.Display\n4.Exit\n"); 
+puts("\nEnter your choice\n"); 
+scanf("%d",&ch); 
+switch(ch){ 
+case 1: insert(); break; 
+case 2: delete(); break; 
+case 3: display(); break; 
+case 4: return 0; 
+default: printf("\nInvalid choice\n"); 
+} 
+} 
+}
